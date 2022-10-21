@@ -1,39 +1,78 @@
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-}
-
-:root {
-	--body-temporal-background-color: #14213d;
-	--container-temporal-background-color: #000000;
-	--button-temporal-background-color: #fca311;
-	--font-temporal-color: #ffffff;
-	font-size: 62.5%;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	font-size: 1.6rem;
-	background-color: var(--body-temporal-background-color);
-}
-
-.container {
-	max-width: 1250px;
-	background-color: var(--container-temporal-background-color);
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-}
-
 main {
-	color: var(--font-temporal-color);
-	background-color: var(--button-temporal-background-color);
-	height: 200px;
-	padding: 3em;
-	border: 2px solid magenta;
+    width:800px;
+    height:800px;
+    background-color:green;
+}
+
+#FullContainer{
+    display:block;
+    margin-top:60px;
+    background-color: yellow;
+    width:600px;
+    height:600px;
+    border-width:10px;
+    border-color:black;
+    border-style: solid;
+}
+
+#PlayerContainer{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    background-color:orange;
+    width:300px;
+    height:150px;
+    border-width:8px;
+    border-color:black;
+    border-style: solid;
+
+}
+
+#TrackContainer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:blue;
+    width:150px;
+    height:150px;
+    border-width:6px;
+    border-color:black;
+    border-style: solid;
+}
+
+#TrackDisplay{
+    display:block;
+    background-color:rgb(59, 59, 182);
+    width:90px;
+    height:90px;
+    border-width:4px;
+    border-color:rgb(228, 220, 220);
+    border-style: solid;
+}
+
+#Input{
+    display:inline-block;
+    background-color:rgb(9, 142, 219);
+    width:150px;
+    height:150px;
+    border-width:6px;
+    border-color:black;
+    border-style: solid;
+}
+
+#Colors{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    width: 300px;
+    height:100px;
+    background-color:rgb(173, 65, 65);
+    border-width:8px;
+    border-color:black;
+    border-style: solid;
+}
+
+.Color{
+    width:50px;
+    height:20px;
 }
