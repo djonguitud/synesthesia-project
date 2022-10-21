@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Synesthesia</title> <!--Title of the page-->
-    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
   </head>
 
 
-  <body>
+  <body onload="onPageLoad()">
         <main id = "GradContainer">
             <p>HOLAAAAAAAAAAA</p>
             <container id = "FullContainer">
@@ -28,7 +28,7 @@
                     <div id="Input">
                         <input id="TrackInput">
                         <input id="ArtistInput">
-                        <button>Buscar</button>
+                        <button id="Search">Buscar</button>
                     </div>   
                 </container>
                 <div id="Colors">
@@ -42,5 +42,7 @@
 
         </main>
     </body>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/js/trackscript.js"></script>
 </html>
