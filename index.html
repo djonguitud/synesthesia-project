@@ -23,17 +23,19 @@
 					<div id="TrackContainer">
 						<div id="TrackDisplay">
 							<iframe
+								id="embedded-iframe"
 								style="border-radius: 12px"
 								src="https://open.spotify.com/embed/track/7psfcbjfnXwYIezHstNa1a?utm_source=generator"
-								width="100%"
-								height="352"
 								frameborder="0"
-								allowfullscreen=""
 								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-								loading="lazy"></iframe
-							><!-- <img class="img" src="https://www.bettertechtips.com/wp-content/uploads/2018/10/spotify-plylist.jpg" alt="" />  --></div
-						>
-						<div id="LyricsDisplay"><img class="img" src="https://i.blogs.es/525807/portada/1366_2000.png" alt="" /> </div>
+								loading="lazy"></iframe>
+						</div>
+						<div id="LyricsDisplay">
+							<div class="lyrics">
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam doloribus repellendus aperiam exercitationem enim ullam?</p>
+								<br />
+							</div>
+						</div>
 					</div>
 
 					<div id="Input">
@@ -46,11 +48,11 @@
 					</div>
 				</container>
 				<div id="Colors">
-					<button id="FirstColor" class="Color"></button>
-					<button id="SecondColor" class="Color"></button>
-					<button id="ThirdColor" class="Color"></button>
-					<button id="FourthColor" class="Color"></button>
-					<button id="GradientColor" class="Color"></button>
+					<button id="FirstColor" class="btn-color colorOne"></button>
+					<button id="SecondColor" class="btn-color colorTwo"></button>
+					<button id="ThirdColor" class="btn-color colorThree"></button>
+					<button id="FourthColor" class="btn-color colorFour"></button>
+					<button id="GradientColor" class="btn-color colorFive"></button>
 				</div>
 			</container>
 		</main>
