@@ -1,78 +1,155 @@
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+}
+
+body {
+	background-color: rgb(53, 53, 53);
+	height: 100vh;
+	font-family: 'JetBrains Mono', monospace;
+}
+
 main {
-    width:800px;
-    height:800px;
-    background-color:green;
+	margin: 0 auto;
+	max-width: 1200px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-#FullContainer{
-    display:block;
-    margin-top:60px;
-    background-color: yellow;
-    width:600px;
-    height:600px;
-    border-width:10px;
-    border-color:black;
-    border-style: solid;
+#FullContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 0px 0px;
+	grid-template-areas:
+		'btns-container btns-container btns-container btns-container btns-container btns-container btns-container btns-container btns-container'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'Colors Colors Colors Colors Colors Colors Colors Colors Colors';
+
+	max-width: 950px;
+
+	/* width: 600px;
+	height: 600px; */
 }
 
-#PlayerContainer{
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    background-color:orange;
-    width:300px;
-    height:150px;
-    border-width:8px;
-    border-color:black;
-    border-style: solid;
+#Colors {
+	grid-area: Colors;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 2em;
+}
+#PlayerContainer {
+	grid-area: PlayerContainer;
+	display: flex;
 
+	backdrop-filter: blur(2px);
+	height: 400px;
 }
 
-#TrackContainer{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background-color:blue;
-    width:150px;
-    height:150px;
-    border-width:6px;
-    border-color:black;
-    border-style: solid;
+#TrackContainer {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-#TrackDisplay{
-    display:block;
-    background-color:rgb(59, 59, 182);
-    width:90px;
-    height:90px;
-    border-width:4px;
-    border-color:rgb(228, 220, 220);
-    border-style: solid;
+#Input {
+	padding: 1em;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-#Input{
-    display:inline-block;
-    background-color:rgb(9, 142, 219);
-    width:150px;
-    height:150px;
-    border-width:6px;
-    border-color:black;
-    border-style: solid;
+.img {
+	max-width: 100%;
+	height: auto;
 }
 
-#Colors{
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    width: 300px;
-    height:100px;
-    background-color:rgb(173, 65, 65);
-    border-width:8px;
-    border-color:black;
-    border-style: solid;
+#TrackDisplay {
+	width: 50%;
 }
 
-.Color{
-    width:50px;
-    height:20px;
+#LyricsDisplay {
+	width: 50%;
+}
+
+#btns-container {
+	grid-area: btns-container;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.Color {
+	background-color: #44c767;
+	border-radius: 28px;
+	border: 1px solid #18ab29;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 17px;
+	padding: 16px 31px;
+	text-decoration: none;
+}
+.Color:hover {
+	background-color: #5cbf2a;
+}
+.Color:active {
+	position: relative;
+	top: 1px;
+}
+
+h2 {
+	text-align: center;
+	color: white;
+}
+
+label {
+	display: block;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+	color: white;
+	align-self: flex-start;
+}
+
+input {
+	width: 100%;
+	padding: 5px;
+	font-size: 21px;
+	border-width: 0px;
+	border-color: #cccccc;
+	background-color: #ffffff;
+	color: #000000;
+	border-style: solid;
+	border-radius: 35px;
+}
+
+#Search {
+	display: block;
+	width: 100%;
+	margin: 1em;
+	font-size: 21px;
+	border-width: 0px;
+	border-color: #cccccc;
+	background-color: #ffffff;
+	color: #000000;
+	border-style: solid;
+	border-radius: 35px;
+	cursor: pointer;
 }
