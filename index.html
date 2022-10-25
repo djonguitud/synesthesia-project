@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Synesthesia</title> <!--Title of the page-->
-    <link rel="stylesheet" href="./assets/css/style.css"/>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Synesthesia</title>
+		<!--Title of the page-->
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;800&display=swap" rel="stylesheet" />
+	</head>
 
+	<body onload="onPageLoad()">
+		<main id="GradContainer">
+			<container id="FullContainer">
+				<div id="btns-container">
+					<button id="Track" class="Color">Canción</button>
+					<button id="Playlist" class="Color">Playlist</button>
+				</div>
+				<container id="PlayerContainer">
+					<div id="TrackContainer">
+						<div id="TrackDisplay">
+							<iframe
+								style="border-radius: 12px"
+								src="https://open.spotify.com/embed/track/7psfcbjfnXwYIezHstNa1a?utm_source=generator"
+								width="100%"
+								height="352"
+								frameborder="0"
+								allowfullscreen=""
+								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+								loading="lazy"></iframe
+							><!-- <img class="img" src="https://www.bettertechtips.com/wp-content/uploads/2018/10/spotify-plylist.jpg" alt="" />  --></div
+						>
+						<div id="LyricsDisplay"><img class="img" src="https://i.blogs.es/525807/portada/1366_2000.png" alt="" /> </div>
+					</div>
 
-  <body onload="onPageLoad()">
-        <main id = "GradContainer">
-            <p>HOLAAAAAAAAAAA</p>
-            <container id = "FullContainer">
-                <p>HOLAAAAAAA2</p>
-                
-                <button id="Track">Canción</button>
-                <button id="Playlist">Playlist</button>
-                
-                <container id="PlayerContainer"> 
-                    <div id="TrackContainer">
-                        <div id="TrackDisplay">
+					<div id="Input">
+						<h2>Busca tu canción</h2>
+						<label for="">Canción</label>
+						<input id="TrackInput" />
+						<label for="">Artista</label>
+						<input id="ArtistInput" />
+						<button id="Search">Buscar</button>
+					</div>
+				</container>
+				<div id="Colors">
+					<button id="FirstColor" class="Color"></button>
+					<button id="SecondColor" class="Color"></button>
+					<button id="ThirdColor" class="Color"></button>
+					<button id="FourthColor" class="Color"></button>
+					<button id="GradientColor" class="Color"></button>
+				</div>
+			</container>
+		</main>
+	</body>
 
-                        </div>
-                    </div>
-                    
-                    <div id="Input">
-                        <input id="TrackInput">
-                        <input id="ArtistInput">
-                        <button id="Search">Buscar</button>
-                    </div>   
-                </container>
-                <div id="Colors">
-                    <button id="FirstColor" class="Color"></button>
-                    <button id="SecondColor" class="Color"></button>
-                    <button id="ThirdColor" class="Color"></button>
-                    <button id="FourthColor" class="Color"></button>
-                    <button id="GradientColor" class="Color"></button>
-                </div>
-            </container>
-
-        </main>
-    </body>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./assets/js/trackscript.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./assets/js/trackscript.js"></script>
 </html>
