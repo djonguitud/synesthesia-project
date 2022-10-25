@@ -1,14 +1,25 @@
 var colors = [];
 var step = 0;
-var colorIndices = [0,1,2,3];
-var gradientSpeed = .0015;
+var colorIndices = [10,5,15,8];
+var gradientSpeed = .016;
 
 function genColor(energy, valence, ) {
-  
-  var colorYelQty = Math.round(valence*10);
-  var colorBluQty = Math.round(10-valence*10);
-  var colorRedQty = Math.round(energy*10);
-  var colorMagQty = Math.round(10-valence*10);
+
+  if (valence<0.5) {
+    var colorYelQty = Math.round(valence*10);
+    var colorBluQty = Math.round(10-valence*10);
+  } else {
+    var colorYelQty = Math.round(valence*10);
+    var colorBluQty = Math.round(10-valence*10);
+  }
+
+  if (energy<0.5) {
+    var colorRedQty = Math.round(10-energy*10);
+    var colorMagQty = Math.round(energy*10);
+  } else {
+    var colorRedQty = Math.round(energy*10);
+    var colorMagQty = Math.round(10-energy*10);
+  }
 
   for(var i=0; i<colorYelQty; i++) {
     colors.push([255,255-(i*25),0]);
@@ -27,9 +38,9 @@ function genColor(energy, valence, ) {
   }
 
   console.log(colors)
+  console.log("y: "+colorYelQty+"  b: "+colorBluQty+"  r: "+colorRedQty+"  m: "+colorMagQty);
   return;
 }
-
 
 function modColor(addColor) {
   
@@ -44,12 +55,9 @@ function modColor(addColor) {
   }
 
   console.log(colors)
-
   return;
 }
 
-
-  
 function updateGradient() {
   var c0_0 = colors[colorIndices[0]];
   var c0_1 = colors[colorIndices[1]];
@@ -78,14 +86,9 @@ function updateGradient() {
           colorIndices[2] = colorIndices[3];
           colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
           colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;  
-          console.log(colors.length);
           console.log(colorIndices);
       }
   }
-  
 
-
-
-    genColor(0.3, 0.7);
-
-    setInterval(updateGradient, 15);
+genColor(0.392, 0.163);
+setInterval(updateGradient, 15);

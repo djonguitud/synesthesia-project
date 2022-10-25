@@ -9,7 +9,7 @@
   </head>
 
 
-  <body onload="onPageLoad()">
+  <body onload="onPageLoad()" id="gradient">
         <main id = "GradContainer">
             <p>HOLAAAAAAAAAAA</p>
             <container id = "FullContainer">
@@ -32,10 +32,10 @@
                     </div>   
                 </container>
                 <div id="Colors">
-                    <button id="FirstColor" class="Color"></button>
-                    <button id="SecondColor" class="Color"></button>
-                    <button id="ThirdColor" class="Color"></button>
-                    <button id="FourthColor" class="Color"></button>
+                    <button id="FirstColor" class="Color" onclick="modColor('yellow')"></button>
+                    <button id="SecondColor" class="Color" onclick="modColor('blue')"></button>
+                    <button id="ThirdColor" class="Color" onclick="modColor('red')"></button>
+                    <button id="FourthColor" class="Color" onclick="modColor('magenta')"></button>
                     <button id="GradientColor" class="Color"></button>
                 </div>
             </container>
@@ -45,4 +45,5 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/trackscript.js"></script>
+    <script src="./assets/js/gradient.js"></script>
 </html>
