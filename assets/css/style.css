@@ -1,3 +1,6 @@
+/*=============================================
+=            General Styles block            =
+=============================================*/
 *,
 ::after,
 ::before {
@@ -15,6 +18,20 @@ body {
 	font-family: 'JetBrains Mono', monospace;
 }
 
+button {
+	text-decoration: none;
+	border: none;
+	background-color: transparent;
+	font-family: inherit;
+	padding: 0;
+	cursor: pointer;
+}
+
+/*=====  End of Section comment block  ======*/
+
+/*=============================================
+=            Containers and boxes section           =
+=============================================*/
 main {
 	margin: 0 auto;
 	max-width: 1200px;
@@ -38,9 +55,7 @@ main {
 		'Colors Colors Colors Colors Colors Colors Colors Colors Colors';
 
 	max-width: 950px;
-
-	/* width: 600px;
-	height: 600px; */
+	height: auto;
 }
 
 #Colors {
@@ -60,32 +75,32 @@ main {
 
 #TrackContainer {
 	width: 60%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		'TrackDisplay TrackDisplay TrackDisplay'
+		'LyricsDisplay LyricsDisplay LyricsDisplay'
+		'LyricsDisplay LyricsDisplay LyricsDisplay'
+		'LyricsDisplay LyricsDisplay LyricsDisplay';
 }
 
 #Input {
-	padding: 1em;
+	padding: 2em;
 	width: 40%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 }
 
-.img {
-	max-width: 100%;
-	height: auto;
-}
-
 #TrackDisplay {
-	width: 50%;
+	grid-area: TrackDisplay;
 }
 
 #LyricsDisplay {
-	width: 50%;
+	grid-area: LyricsDisplay;
 }
 
 #btns-container {
@@ -95,29 +110,25 @@ main {
 	align-items: center;
 }
 
-.Color {
-	background-color: #44c767;
-	border-radius: 28px;
-	border: 1px solid #18ab29;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Arial;
-	font-size: 17px;
-	padding: 16px 31px;
-	text-decoration: none;
+.lyrics {
+	height: 100%;
+	background-color: #558b72;
+	overflow: scroll;
+	padding: 1em;
+	border-radius: 15px;
 }
-.Color:hover {
-	background-color: #5cbf2a;
+
+#embedded-iframe {
+	min-height: 100%;
+	min-width: 100%;
 }
-.Color:active {
-	position: relative;
-	top: 1px;
-}
+/*=====  End of Section comment block  ======*/
 
 h2 {
 	text-align: center;
 	color: white;
+	font-weight: 700;
+	margin-bottom: 1em;
 }
 
 label {
@@ -140,6 +151,10 @@ input {
 	border-radius: 35px;
 }
 
+/*=============================================
+=            Buttons Section            =
+=============================================*/
+
 #Search {
 	display: block;
 	width: 100%;
@@ -147,9 +162,90 @@ input {
 	font-size: 21px;
 	border-width: 0px;
 	border-color: #cccccc;
-	background-color: #ffffff;
+	background-color: #cc2854;
 	color: #000000;
 	border-style: solid;
 	border-radius: 35px;
 	cursor: pointer;
 }
+
+.Color {
+	background-color: #088750;
+	border-radius: 15px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 18px;
+	padding: 0.5em;
+	margin-left: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.btn-color {
+	background-color: #18ab29;
+	border-radius: 50px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 50px;
+	padding: 0.5em;
+}
+
+.colorOne {
+	background-color: red;
+}
+
+.colorOne:hover {
+	background-color: #fd6c6c;
+}
+.colorOne:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorTwo {
+	background-color: blue;
+}
+
+.colorTwo:hover {
+	background-color: #5653ff;
+}
+.colorTwo:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorThree {
+	background-color: green;
+}
+
+.colorThree:hover {
+	background-color: #2cd665;
+}
+.colorThree:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorFour {
+	background-color: yellow;
+}
+
+.colorFour:hover {
+	background-color: #ddfa3b;
+}
+.colorFour:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorFive {
+	background-color: purple;
+}
+
+.colorFive:hover {
+	background-color: #82248f;
+}
+.colorFive:active {
+	position: relative;
+	top: 1px;
+}
+/*=====  End of Section comment block  ======*/
