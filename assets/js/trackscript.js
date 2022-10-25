@@ -1,20 +1,17 @@
-var Artist = "Adele";
-var Track = "HoldOn";
-var requesturl = "https://api.spotify.com/v1/search?q=Adele%2520track:HoldOn&type=track&limit=1";
+var Artist = "Eagles";
+var Track = "Hotel California";
+//var requesturl = "https://api.spotify.com/v1/search?q=Adele%2520track:HoldOn&type=track&limit=1";
 var client_id = "71dddef0e17b4ade850d8fd3cf9599d3";
-var client_secret = "abbfd115ca364fc9a5443c3b1e32e26c";
+var client_secret = "b545088d0642400cbb25a4ec53893875";
 const urlauthorize = "https://accounts.spotify.com/authorize";
 var redirect_uri = "http://127.0.0.1:5500/index.html";
 
 
-function onPageLoad(){
-    if (window.location.search.length > 0){
-        handleRedirect();
-    }
-}
 
 function handleRedirect(){
     var str = window.location.search;
+    console.log("STRING");
+    console.log(str);
     if (str.length > 0){
         var URLparameters = new URLSearchParams(str);
         code = URLparameters.get("code");
@@ -44,6 +41,9 @@ function handleAuthResponse(){
         var data = JSON.parse(this.responseText);
         if ( data.access_token != undefined ){
             access_token = data.access_token;
+            
+            var requesturl = "https://api.spotify.com/v1/search?q=" + Artist + "%2520track:" + Track + "&type=track&limit=1";
+            console.log(requesturl);
             fetch(requesturl, {
             method: 'GET', headers: { 'Authorization': "Bearer " + access_token}
             })
@@ -53,6 +53,7 @@ function handleAuthResponse(){
                         console.log(data);
                         console.log(data.tracks.items[0].id);
                         getAudioFeatures(data.tracks.items[0].id);
+                        displayEmbed(data.tracks.items[0].id);
                     }
                 ));
             });
@@ -63,6 +64,7 @@ function handleAuthResponse(){
         }
     }
 }
+
 
 function getAudioFeatures(trackid){
     var trackurl = "https://api.spotify.com/v1/audio-features/" + trackid;
@@ -79,14 +81,32 @@ function getAudioFeatures(trackid){
 }
 
 
+function displayEmbed(trackid) {
+    var newembed = "https://open.spotify.com/embed/track/" + trackid + "?utm_source=generator&theme=0";
+    $("#embed-iframe").attr("style", "width:380px;");
+    $("#embed-iframe").attr("style", "height:300px;");
+    $("#embed-iframe").attr("frameBorder", "0");
+    $("#embed-iframe").attr("allowfullscreen", "");
+    $("#embed-iframe").attr("allow", "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture;");
+    $("#embed-iframe").attr("loading", "lazy");
+    $("#embed-iframe").attr("src", newembed);
+
+}
+
 function getauthorization() {
     let url = urlauthorize;
+    Artist = $("#ArtistInput").val();
+    Track = $("#TrackInput").val();
+    console.log("Button pressed");
     url += "?client_id=" + client_id;
     url += "&response_type=code";
     url += "&redirect_uri=" + encodeURI(redirect_uri);
     url += "&show_dialog=false";
     url += "&scope=user-follow-read";
+    console.log(url);
     window.location.href = url;
+    
+    handleRedirect();
 }
 
 
