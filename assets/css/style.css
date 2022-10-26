@@ -124,6 +124,10 @@ main {
 }
 /*=====  End of Section comment block  ======*/
 
+/*=============================================
+=            Form Section block            =
+=============================================*/
+
 h2 {
 	text-align: center;
 	color: white;
@@ -134,7 +138,7 @@ h2 {
 label {
 	display: block;
 	margin-bottom: 0.5em;
-	margin-top: 0.5em;
+	margin-top: 1.5em;
 	color: white;
 	align-self: flex-start;
 }
@@ -151,23 +155,71 @@ input {
 	border-radius: 35px;
 }
 
+/* #Search {
+	display: block;
+	width: 100%;
+	font-size: 25px;
+	background-color: #cc2854;
+	color: #000000;
+	border-radius: 35px;
+	cursor: pointer;
+	margin-top: 2em;
+} */
+
+#Search {
+	background-color: #cc2854;
+	border: 2px solid #570118;
+	border-radius: 30px;
+	margin: 2em;
+	box-shadow: #140c00 4px 4px 0 0;
+	color: #422800;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 600;
+	font-size: 18px;
+	padding: 0 18px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+#Search:hover {
+	background-color: #fff;
+}
+
+#Search:focus {
+	box-shadow: #422800 2px 2px 0 0;
+	transform: translate(2px, 2px);
+}
+
+/* CSS */
+.button-74 {
+	background-color: #fbeee0;
+	border: 2px solid #422800;
+	border-radius: 30px;
+	box-shadow: #422800 4px 4px 0 0;
+	color: #422800;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 600;
+	font-size: 18px;
+	padding: 0 18px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+/*=====  End of Section comment block  ======*/
+
 /*=============================================
 =            Buttons Section            =
 =============================================*/
-
-#Search {
-	display: block;
-	width: 100%;
-	margin: 1em;
-	font-size: 21px;
-	border-width: 0px;
-	border-color: #cccccc;
-	background-color: #cc2854;
-	color: #000000;
-	border-style: solid;
-	border-radius: 35px;
-	cursor: pointer;
-}
 
 .Color {
 	background-color: #088750;
