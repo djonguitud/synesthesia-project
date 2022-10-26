@@ -1,15 +1,18 @@
+var cors = "https://cors-anywhere.herokuapp.com/";
+var apikey = "9ffbe6147c3d611e3a0048e57074efe8";
 
-var lyricsUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=49403957&apikey=9ffbe6147c3d611e3a0048e57074efe8";
+var trackUrlMusix = cors + "https://api.musixmatch.com/ws/1.1/track.search?apikey="+apikey+"&f_has_lyrics=1&q_track="
 
-var trackUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?apikey=9ffbe6147c3d611e3a0048e57074efe8&q_track=hotel california&f_has_lyrics=1"
+var lyricsUrlMusix = cors +"https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey="+apikey+"&track_id=";
+
 
 var trackIdMusix ;
 var lyricsBody;
 
 
-function getlirycs (trackName)
+function getLirycs(trackName)
 {
-    var trackUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?apikey=9ffbe6147c3d611e3a0048e57074efe8&q_track="+trackName+"&f_has_lyrics=1";
+    var trackUrl = trackUrlMusix +trackName;
 
     fetch(trackUrl)
     .then(function (response)  {
@@ -20,7 +23,7 @@ function getlirycs (trackName)
         trackIdMusix = data.message.body.track_list[0].track.track_id;
 
     }).then(function(){
-        var lyricsUrl = "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id="+trackIdMusix+"&apikey=9ffbe6147c3d611e3a0048e57074efe8";
+        var lyricsUrl =  lyricsUrlMusix + trackIdMusix;
 
         console.log(lyricsUrl);
         fetch(lyricsUrl)
@@ -31,6 +34,9 @@ function getlirycs (trackName)
             lyricsBody = data.message.body.lyrics.lyrics_body;
             console.log(lyricsBody);
 
+            console.log(lyricsMusixmatch);
+            $("#lyricsMusixmatch").text(lyricsBody);
+
         });
 
     } );
@@ -39,9 +45,10 @@ function getlirycs (trackName)
 }
 
 
-getLirycs("lamento boliviano");
-//lirycsdisplay
+function init()
+{
+        //lirycsdisplay
+        getLirycs("lamento boliviano");
+}
 
-
-
-    
+//init ();
