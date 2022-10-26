@@ -20,9 +20,10 @@ function onPageLoad(){
     if (storedToken !== null) { //If there is something in the localStorage
         array = storedToken;
         access_token = array[0]; //Move the stored token to a variable
-        console.log("Token ready");
+        console.log("Token ready 2");
+        console.log("Validate last search");
         last = JSON.parse(localStorage.getItem("Last")); //Get the stored search
-        console.log(last);
+        console.log(last[0]);
         if (last !== null){
             console.log("Search last artist/track");
             getTrack();
@@ -86,7 +87,9 @@ function handleAuthResponse(){
 function getTrack(){
     $("p").remove(".message");
     console.log(last);
-    if (last !== null){
+
+    console.log(last);
+    if (last === null){
         console.log("Get data from inputs");
         Artist = $("#ArtistInput").val();
         Track = $("#TrackInput").val();
@@ -176,31 +179,7 @@ function displayEmbed(trackid) {
     $("#embedded-iframe").attr("src", newembed);
 }
 
-function onPageLoad() {
-	storedToken = JSON.parse(localStorage.getItem('Token')); //Get the stored token
-	var str = window.location.search;
-	console.log('STRING');
-	console.log(str);
-	if (storedToken !== null) {
-		//If there is something in the localStorage
-		array = storedToken;
-		access_token = array[0]; //Move the stored token to a variable
-		console.log('Token ready');
-	} else if (str.length > 0) {
-		console.log('Extract the code needed to get a new token');
-		var URLparameters = new URLSearchParams(str);
-		code = URLparameters.get('code');
-		body = 'grant_type=authorization_code';
-		body += '&code=' + code;
-		body += '&redirect_uri=' + encodeURI(redirect_uri);
-		body += '&client_id=' + client_id;
-		body += '&client_secret' + client_secret;
-		callAuthorizationAPI(body);
-	} else if (str.length === 0) {
-		console.log('Start authorization process');
-		getauthorization();
-	}
-}
+
 
 
 function callAuthorizationAPI(body) {
