@@ -132,7 +132,7 @@ function getTrack(){
             elementmessage.text("No tracks were found for your search, please try with different values");
             elementmessage.attr("style", "color:white; text-align:center;");
             elementmessage.addClass("message");
-            $("#Input").append(elementmessage);
+            $("#lyricsMusixmatch").append(elementmessage);
         }
     });
 
