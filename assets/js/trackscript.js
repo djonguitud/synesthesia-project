@@ -171,10 +171,43 @@ function getAudioFeatures(trackid){
 function displayEmbed(trackid) {
     var newembed = "https://open.spotify.com/embed/track/" + trackid + "?utm_source=generator&theme=0";
     $("#embedded-iframe").attr("src", newembed);
+}
 
+function onPageLoad() {
+	storedToken = JSON.parse(localStorage.getItem('Token')); //Get the stored token
+	var str = window.location.search;
+	console.log('STRING');
+	console.log(str);
+	if (storedToken !== null) {
+		//If there is something in the localStorage
+		array = storedToken;
+		access_token = array[0]; //Move the stored token to a variable
+		console.log('Token ready');
+	} else if (str.length > 0) {
+		console.log('Extract the code needed to get a new token');
+		var URLparameters = new URLSearchParams(str);
+		code = URLparameters.get('code');
+		body = 'grant_type=authorization_code';
+		body += '&code=' + code;
+		body += '&redirect_uri=' + encodeURI(redirect_uri);
+		body += '&client_id=' + client_id;
+		body += '&client_secret' + client_secret;
+		callAuthorizationAPI(body);
+	} else if (str.length === 0) {
+		console.log('Start authorization process');
+		getauthorization();
+	}
 }
 
 
+function callAuthorizationAPI(body) {
+	let xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://accounts.spotify.com/api/token', true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.setRequestHeader('Authorization', 'Basic ' + btoa(client_id + ':' + client_secret));
+	xhr.send(body);
+	xhr.onload = handleAuthResponse;
+}
 
 
 $("#Search").on("click", getTrack);
