@@ -1,6 +1,5 @@
 var Artist = "Eagles";
 var Track = "Hotel California";
-//var requesturl = "https://api.spotify.com/v1/search?q=Adele%2520track:HoldOn&type=track&limit=1";
 var client_id = "71dddef0e17b4ade850d8fd3cf9599d3";
 var client_secret = "b545088d0642400cbb25a4ec53893875";
 const urlauthorize = "https://accounts.spotify.com/authorize";
@@ -8,8 +7,13 @@ var redirect_uri = "http://127.0.0.1:5500/index.html";
 var storedToken = [];
 var array = [];
 var access_token = "";
+var elementmessage = $("<p>");
+var arraylast = [];
+var last = [];
+
 
 function onPageLoad(){
+    arraylast="";
     storedToken = JSON.parse(localStorage.getItem("Token")); //Get the stored token
     var str = window.location.search;
     console.log("STRING");
@@ -18,6 +22,12 @@ function onPageLoad(){
         array = storedToken;
         access_token = array[0]; //Move the stored token to a variable
         console.log("Token ready");
+        last = JSON.parse(localStorage.getItem("Last")); //Get the stored search
+        console.log(last);
+        if (last !== null){
+            console.log("Search last artist/track");
+            getTrack();
+        }
     } else if (str.length > 0){
         console.log("Extract the code needed to get a new token");
         var URLparameters = new URLSearchParams(str);
@@ -75,21 +85,54 @@ function handleAuthResponse(){
 }
 
 function getTrack(){
-    Artist = $("#ArtistInput").val();
-    Track = $("#TrackInput").val();
-    console.log("Button pressed");
-    var requesturl = "https://api.spotify.com/v1/search?q=" + Artist + "%2520track:" + Track + "&type=track&limit=1";
+    $("p").remove(".message");
+    console.log(last);
+    if (last === null){
+        Artist = $("#ArtistInput").val();
+        Track = $("#TrackInput").val();
+    }else{
+        Artist = last[0].Art;
+        Track = last[0].Tck;
+    }
+    console.log("Search");
+    if (Artist !== "" && Track !== ""){
+        var requesturl = "https://api.spotify.com/v1/search?q=" + Artist + "%20artist:" + Artist + "%20track:" + Track + "&type=track&limit=1&include_external=audio";
+    } else if (Artist !== "" && Track === ""){
+        var requesturl = "https://api.spotify.com/v1/search?q=" + Artist + "%20artist:" + Artist + "&type=track&limit=1&include_external=audio";
+    } else if (Artist === "" && Track !== ""){
+        var requesturl = "https://api.spotify.com/v1/search?q=" + Track + "%20track:" + Track + "&type=track&limit=1&include_external=audio";
+    }
+    localStorage.removeItem("Last");
     console.log(requesturl);
     fetch(requesturl, {
         method: 'GET', headers: { 'Authorization': "Bearer " + access_token}
             })
     .then( function (response) {
+        console.log(response.status);
+        if (response.status === 401){
+            localStorage.removeItem("Token");
+            var lastSearch = {
+                Art: Artist,
+                Tck: Track
+            };
+            arraylast[0] = lastSearch;
+            var almacenarlast = JSON.stringify(arraylast);
+            localStorage.setItem("Last", almacenarlast);
+            getauthorization();
+        }
         return response.json();
     }).then( function (data) {
         console.log(data);
-        console.log(data.tracks.items[0].id);
-        getAudioFeatures(data.tracks.items[0].id);
-        displayEmbed(data.tracks.items[0].id);
+        if (data.tracks.items.length > 0){
+            console.log(data.tracks.items[0].id);
+            getAudioFeatures(data.tracks.items[0].id);
+            displayEmbed(data.tracks.items[0].id);
+        } else {
+            elementmessage.text("No tracks were found for your search, please try with different values");
+            elementmessage.attr("style", "color:white; text-align:center;");
+            elementmessage.addClass("message");
+            $("#Input").append(elementmessage);
+        }
     });
 
 }
@@ -101,12 +144,26 @@ function getAudioFeatures(trackid){
     fetch(trackurl, {
         method: 'GET', headers: { 'Authorization': "Bearer " + access_token}
         })
-        .then((response) => {
-            console.log(response.json().then(
-                (data) => { 
-                    console.log(data);
-                }
-            ));
+        .then(function (response) {
+            console.log(response.status);
+            if (response.status === 401){
+                localStorage.removeItem("Token");
+                var lastSearch = {
+                    Art: Artist,
+                    Tck: Track
+                };
+                arraylast[0] = lastSearch;
+                var almacenarlast = JSON.stringify(arraylast);
+                localStorage.setItem("Last", almacenarlast);
+                getauthorization();
+            }
+            return response.json();
+        }).then(function (data) { 
+            console.log(data);
+            var valence = data.valence;
+            var energy = data.energy;
+            console.log(valence);
+            console.log(energy);
         });
 }
 
@@ -121,6 +178,3 @@ function displayEmbed(trackid) {
 
 
 $("#Search").on("click", getTrack);
-
-
-/* */
