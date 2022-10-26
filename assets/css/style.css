@@ -1,84 +1,304 @@
-html {
-    height: 100%;
-    width: 100%;
+/*=============================================
+=            General Styles block            =
+=============================================*/
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
+:root {
+}
+
+body {
+	background-color: rgb(53, 53, 53);
+	height: 100vh;
+	font-family: 'JetBrains Mono', monospace;
+}
+
+button {
+	text-decoration: none;
+	border: none;
+	background-color: transparent;
+	font-family: inherit;
+	padding: 0;
+	cursor: pointer;
+}
+
+/*=====  End of Section comment block  ======*/
+
+/*=============================================
+=            Containers and boxes section           =
+=============================================*/
 
 main {
-    width:800px;
-    height:800px;
-    background-color:green;
+	margin: 0 auto;
+	max-width: 1200px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-#FullContainer{
-    display:block;
-    margin-top:60px;
-    background-color: yellow;
-    width:600px;
-    height:600px;
-    border-width:10px;
-    border-color:black;
-    border-style: solid;
+#FullContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 0px 0px;
+	grid-template-areas:
+		'btns-container btns-container btns-container btns-container btns-container btns-container btns-container btns-container btns-container'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
+		'Colors Colors Colors Colors Colors Colors Colors Colors Colors';
+
+	max-width: 950px;
+	height: auto;
 }
 
-#PlayerContainer{
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    background-color:orange;
-    width:300px;
-    height:150px;
-    border-width:8px;
-    border-color:black;
-    border-style: solid;
+#Colors {
+	grid-area: Colors;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 2em;
+}
+#PlayerContainer {
+	grid-area: PlayerContainer;
+	display: flex;
 
+	backdrop-filter: blur(2px);
+	height: 400px;
 }
 
-#TrackContainer{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background-color:blue;
-    width:150px;
-    height:150px;
-    border-width:6px;
-    border-color:black;
-    border-style: solid;
+#TrackContainer {
+	width: 60%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		'TrackDisplay TrackDisplay TrackDisplay'
+		'LyricsDisplay LyricsDisplay LyricsDisplay'
+		'LyricsDisplay LyricsDisplay LyricsDisplay'
+		'LyricsDisplay LyricsDisplay LyricsDisplay';
 }
 
-#TrackDisplay{
-    display:block;
-    background-color:rgb(59, 59, 182);
-    width:90px;
-    height:90px;
-    border-width:4px;
-    border-color:rgb(228, 220, 220);
-    border-style: solid;
+#Input {
+	padding: 2em;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
-#Input{
-    display:inline-block;
-    background-color:rgb(9, 142, 219);
-    width:150px;
-    height:150px;
-    border-width:6px;
-    border-color:black;
-    border-style: solid;
+#TrackDisplay {
+	grid-area: TrackDisplay;
 }
 
-#Colors{
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    width: 300px;
-    height:100px;
-    background-color:rgb(173, 65, 65);
-    border-width:8px;
-    border-color:black;
-    border-style: solid;
+#LyricsDisplay {
+	grid-area: LyricsDisplay;
 }
 
-.Color{
-    width:50px;
-    height:20px;
+#btns-container {
+	grid-area: btns-container;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
+
+.lyrics {
+	height: 100%;
+	background-color: #558b72;
+	overflow: scroll;
+	padding: 1em;
+	border-radius: 15px;
+}
+
+#embedded-iframe {
+	min-height: 100%;
+	min-width: 100%;
+}
+/*=====  End of Section comment block  ======*/
+
+/*=============================================
+=            Form Section block            =
+=============================================*/
+
+h2 {
+	text-align: center;
+	color: white;
+	font-weight: 700;
+	margin-bottom: 1em;
+}
+
+label {
+	display: block;
+	margin-bottom: 0.5em;
+	margin-top: 1.5em;
+	color: white;
+	align-self: flex-start;
+}
+
+input {
+	width: 100%;
+	padding: 5px;
+	font-size: 21px;
+	border-width: 0px;
+	border-color: #cccccc;
+	background-color: #ffffff;
+	color: #000000;
+	border-style: solid;
+	border-radius: 35px;
+}
+
+/* #Search {
+	display: block;
+	width: 100%;
+	font-size: 25px;
+	background-color: #cc2854;
+	color: #000000;
+	border-radius: 35px;
+	cursor: pointer;
+	margin-top: 2em;
+} */
+
+#Search {
+	background-color: #cc2854;
+	border: 2px solid #570118;
+	border-radius: 30px;
+	margin: 2em;
+	box-shadow: #140c00 4px 4px 0 0;
+	color: #422800;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 600;
+	font-size: 18px;
+	padding: 0 18px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+#Search:hover {
+	background-color: #fff;
+}
+
+#Search:focus {
+	box-shadow: #422800 2px 2px 0 0;
+	transform: translate(2px, 2px);
+}
+
+/* CSS */
+.button-74 {
+	background-color: #fbeee0;
+	border: 2px solid #422800;
+	border-radius: 30px;
+	box-shadow: #422800 4px 4px 0 0;
+	color: #422800;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 600;
+	font-size: 18px;
+	padding: 0 18px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+/*=====  End of Section comment block  ======*/
+
+/*=============================================
+=            Buttons Section            =
+=============================================*/
+
+.Color {
+	background-color: #088750;
+	border-radius: 15px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 18px;
+	padding: 0.5em;
+	margin-left: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.btn-color {
+	background-color: #18ab29;
+	border-radius: 50px;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 50px;
+	padding: 0.5em;
+}
+
+.colorOne {
+	background-color: red;
+}
+
+.colorOne:hover {
+	background-color: #fd6c6c;
+}
+.colorOne:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorTwo {
+	background-color: blue;
+}
+
+.colorTwo:hover {
+	background-color: #5653ff;
+}
+.colorTwo:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorThree {
+	background-color: green;
+}
+
+.colorThree:hover {
+	background-color: #2cd665;
+}
+.colorThree:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorFour {
+	background-color: yellow;
+}
+
+.colorFour:hover {
+	background-color: #ddfa3b;
+}
+.colorFour:active {
+	position: relative;
+	top: 1px;
+}
+
+.colorFive {
+	background-color: purple;
+}
+
+.colorFive:hover {
+	background-color: #82248f;
+}
+.colorFive:active {
+	position: relative;
+	top: 1px;
+}
+/*=====  End of Section comment block  ======*/

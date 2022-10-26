@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Synesthesia</title> <!--Title of the page-->
-    <link rel="stylesheet" href="./assets/css/style.css"/>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Synesthesia</title>
+		<!--Title of the page-->
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;800&display=swap" rel="stylesheet" />
+	</head>
 
+	<body onload="onPageLoad()">
+		<main id="GradContainer">
+			<container id="FullContainer">
+				<div id="btns-container">
+					<button id="Track" class="Color">Canción</button>
+					<button id="Playlist" class="Color">Playlist</button>
+				</div>
+				<container id="PlayerContainer">
+					<div id="TrackContainer">
+						<div id="TrackDisplay">
+							<iframe
+								id="embedded-iframe"
+								style="border-radius: 12px"
+								src="https://open.spotify.com/embed/track/7psfcbjfnXwYIezHstNa1a?utm_source=generator"
+								frameborder="0"
+								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+								loading="lazy"></iframe>
+						</div>
+						<div id="LyricsDisplay">
+							<div class="lyrics">
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam doloribus repellendus aperiam exercitationem enim ullam?</p>
+								<br />
+							</div>
+						</div>
+					</div>
+					<div id="Input">
+						<h2>Busca tu canción:</h2>
+						<label for="">Canción</label>
+						<input id="TrackInput" />
+						<label for="">Artista</label>
+						<input id="ArtistInput" />
+						<button id="Search">Buscar</button>
+					</div>
+				</container>
+				<div id="Colors">
+					<button id="FirstColor" class="Color" onclick="modColor('yellow')"></button>
+					<button id="SecondColor" class="Color" onclick="modColor('blue')"></button>
+					<button id="ThirdColor" class="Color" onclick="modColor('red')"></button>
+					<button id="FourthColor" class="Color" onclick="modColor('magenta')"></button>
+					<button id="GradientColor" class="Color"></button>
+				</div>
+			</container>
+		</main>
+	</body>
 
-  <body onload="onPageLoad()" id="gradient">
-        <main id = "GradContainer">
-            <p>HOLAAAAAAAAAAA</p>
-            <container id = "FullContainer">
-                <p>HOLAAAAAAA2</p>
-                
-                <button id="Track">Canción</button>
-                <button id="Playlist">Playlist</button>
-                
-                <container id="PlayerContainer"> 
-                    <div id="TrackContainer">
-                        <div id="TrackDisplay">
-
-                        </div>
-                    </div>
-                    
-                    <div id="Input">
-                        <input id="TrackInput">
-                        <input id="ArtistInput">
-                        <button id="Search">Buscar</button>
-                    </div>   
-                </container>
-                <div id="Colors">
-                    <button id="FirstColor" class="Color" onclick="modColor('yellow')"></button>
-                    <button id="SecondColor" class="Color" onclick="modColor('blue')"></button>
-                    <button id="ThirdColor" class="Color" onclick="modColor('red')"></button>
-                    <button id="FourthColor" class="Color" onclick="modColor('magenta')"></button>
-                    <button id="GradientColor" class="Color"></button>
-                </div>
-            </container>
-
-        </main>
-    </body>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./assets/js/trackscript.js"></script>
-    <script src="./assets/js/gradient.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./assets/js/trackscript.js"></script>
+	<script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+	<script type="text/javascript" src="./assets/js/music.js"></script>
 </html>
