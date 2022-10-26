@@ -93,6 +93,9 @@ main {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #989898;
+	background-blend-mode: multiply, multiply;
+	border-radius: 15px;
 }
 
 #TrackDisplay {
@@ -155,7 +158,7 @@ input {
 	border-radius: 35px;
 }
 
-/* #Search {
+#Search {
 	display: block;
 	width: 100%;
 	font-size: 25px;
@@ -164,35 +167,6 @@ input {
 	border-radius: 35px;
 	cursor: pointer;
 	margin-top: 2em;
-} */
-
-#Search {
-	background-color: #cc2854;
-	border: 2px solid #570118;
-	border-radius: 30px;
-	margin: 2em;
-	box-shadow: #140c00 4px 4px 0 0;
-	color: #422800;
-	cursor: pointer;
-	display: inline-block;
-	font-weight: 600;
-	font-size: 18px;
-	padding: 0 18px;
-	line-height: 50px;
-	text-align: center;
-	text-decoration: none;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-}
-
-#Search:hover {
-	background-color: #fff;
-}
-
-#Search:focus {
-	box-shadow: #422800 2px 2px 0 0;
-	transform: translate(2px, 2px);
 }
 
 /* CSS */
