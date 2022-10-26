@@ -32,6 +32,7 @@ button {
 /*=============================================
 =            Containers and boxes section           =
 =============================================*/
+
 main {
 	margin: 0 auto;
 	max-width: 1200px;
@@ -158,7 +159,11 @@ input {
 	border-radius: 35px;
 }
 
+<<<<<<< HEAD
 #Search {
+=======
+/* #Search {
+>>>>>>> 1494b7937051ab34aae51545bc0848147efb0cd4
 	display: block;
 	width: 100%;
 	font-size: 25px;
@@ -167,6 +172,38 @@ input {
 	border-radius: 35px;
 	cursor: pointer;
 	margin-top: 2em;
+<<<<<<< HEAD
+=======
+} */
+
+#Search {
+	background-color: #cc2854;
+	border: 2px solid #570118;
+	border-radius: 30px;
+	margin: 2em;
+	box-shadow: #140c00 4px 4px 0 0;
+	color: #422800;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 600;
+	font-size: 18px;
+	padding: 0 18px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+#Search:hover {
+	background-color: #fff;
+}
+
+#Search:focus {
+	box-shadow: #422800 2px 2px 0 0;
+	transform: translate(2px, 2px);
+>>>>>>> 1494b7937051ab34aae51545bc0848147efb0cd4
 }
 
 /* CSS */
