@@ -319,3 +319,7 @@ input:focus {
 	top: 1px;
 }
 /*=====  End of Section comment block  ======*/
+
+#lyricsMusixmatch{
+	white-space: pre-line;
+}

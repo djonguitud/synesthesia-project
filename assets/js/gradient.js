@@ -1,10 +1,15 @@
-var colors = [];
+var colors = [[255,0,0],
+              [0,0,255],
+              [255,255,0],
+              [255,0,255]];
 var step = 0;
-var colorIndices = [10,5,15,8];
+var colorIndices = [0,1,2,3];
 var gradientSpeed = .016;
 
-function genColor(energy, valence, ) {
+function genColor(energy, valence) {
 
+  var newColors = [];
+  
   if (valence<0.5) {
     var colorYelQty = Math.round(valence*10);
     var colorBluQty = Math.round(10-valence*10);
@@ -22,25 +27,37 @@ function genColor(energy, valence, ) {
   }
 
   for(var i=0; i<colorYelQty; i++) {
-    colors.push([255,255-(i*25),0]);
+    newColors.push([255,255-(i*25),0]);
   }
   
   for(var j=0; j<colorBluQty; j++) {
-    colors.push([0+(j*25),0,255]);
+    newColors.push([0+(j*25),0,255]);
   }
 
   for(var k=0; k<colorRedQty; k++) {
-    colors.push([255,0,0+(k*25)]);
+    newColors.push([255,0,0+(k*25)]);
   }
   
   for(var l=0; l<colorMagQty; l++) {
-    colors.push([255,0,255-(l*25)]);
+    newColors.push([255,0,255-(l*25)]);
   }
-
+  
+  console.log("actual  --->   ");
   console.log(colors)
   console.log("y: "+colorYelQty+"  b: "+colorBluQty+"  r: "+colorRedQty+"  m: "+colorMagQty);
+  console.log("nueva  --->   ");
+  colors = newColors;
+  colorIndices[0] = 0;
+  colorIndices[1] = 1;
+  colorIndices[2] = 2;
+  colorIndices[3] = 3;
+  console.log(newColors);
+  console.log("sobreescrita  --->   ");
+  console.log(colors);
+
   return;
 }
+
 
 function modColor(addColor) {
   
@@ -54,11 +71,14 @@ function modColor(addColor) {
     colors.push([255,0,255-Math.floor(Math.random() * 200)]);
   }
 
+  console.log("actual  --->   ");
   console.log(colors)
   return;
 }
 
+
 function updateGradient() {
+
   var c0_0 = colors[colorIndices[0]];
   var c0_1 = colors[colorIndices[1]];
   var c1_0 = colors[colorIndices[2]];
@@ -86,7 +106,7 @@ function updateGradient() {
           colorIndices[2] = colorIndices[3];
           colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
           colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;  
-          console.log(colorIndices);
+          //console.log(colorIndices);
       }
   }
 
