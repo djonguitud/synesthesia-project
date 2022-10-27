@@ -86,6 +86,7 @@ function handleAuthResponse(){
 
 function getTrack(){
     $("p").remove(".message");
+    $("#lyricsMusixmatch").html("");
     console.log(last);
 
     console.log(last);
@@ -169,7 +170,7 @@ function getAudioFeatures(trackid){
             console.log(valence);
             console.log(energy);
             genColor(energy, valence);
-            getLirycs(Track);
+            getLirycs(Track,Artist);
         });
 }
 
