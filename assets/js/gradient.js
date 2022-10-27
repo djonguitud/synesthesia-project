@@ -6,7 +6,11 @@ var step = 0;
 var colorIndices = [0,1,2,3];
 var gradientSpeed = .016;
 
+<<<<<<< HEAD
 function genColor(energy, valence, ) {
+=======
+function genColor(energy, valence) {
+>>>>>>> e9fefe8920ecf82e4652395340007dba60b240a3
 
   var newColors = [];
   

@@ -27,15 +27,23 @@ button {
 	cursor: pointer;
 }
 
+a:focus,
+button:focus,
+input:focus,
+:focus {
+	outline: none;
+}
+
 /*=====  End of Section comment block  ======*/
 
 /*=============================================
 =            Containers and boxes section           =
 =============================================*/
 
-main {
+#GradContainer {
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 2000px;
+	min-width: 100vh;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -46,16 +54,16 @@ main {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 0px 0px;
+	gap: 0;
 	grid-template-areas:
-		'btns-container btns-container btns-container btns-container btns-container btns-container btns-container btns-container btns-container'
+		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
 		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
 		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
 		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
 		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
 		'Colors Colors Colors Colors Colors Colors Colors Colors Colors';
 
-	max-width: 950px;
+	width: 60%;
 	height: auto;
 }
 
@@ -65,7 +73,18 @@ main {
 	align-items: center;
 	justify-content: space-around;
 	padding: 2em;
+	margin-top: 0.5em;
+	border-radius: 15px;
+	background-color: #0a090856;
+	border: solid black 2px;
+	transition: 1s;
 }
+
+#Colors:hover {
+	background-color: #0a0908c9;
+	transition: 1s;
+}
+
 #PlayerContainer {
 	grid-area: PlayerContainer;
 	display: flex;
@@ -94,10 +113,23 @@ main {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	background-color: #0a090854;
+	border-radius: 15px;
+	margin-left: 1em;
+	border: solid black 2px;
+	transition: 1s;
+}
+
+#Input:hover {
+	background-color: #0a0908b0;
+	transition: 1s;
 }
 
 #TrackDisplay {
 	grid-area: TrackDisplay;
+	margin-bottom: 1em;
+	border-radius: 15px;
+	color: white;
 }
 
 #LyricsDisplay {
@@ -113,10 +145,11 @@ main {
 
 .lyrics {
 	height: 100%;
-	background-color: #558b72;
+	background-color: #0a09088b;
 	overflow: scroll;
 	padding: 1em;
 	border-radius: 15px;
+	border: solid black 2px;
 }
 
 #embedded-iframe {
@@ -147,16 +180,29 @@ label {
 input {
 	width: 100%;
 	padding: 5px;
-	font-size: 21px;
+	font-size: 15px;
 	border-width: 0px;
 	border-color: #cccccc;
 	background-color: #ffffff;
 	color: #000000;
 	border-style: solid;
 	border-radius: 35px;
+	padding: 0.5em;
 }
 
-/* #Search {
+input:hover {
+	outline: 2px solid #2a9d8f;
+	background-color: #ebebeb;
+	transition: 0.2s;
+}
+
+input:focus {
+	border: 2px solid #2a9d8f;
+	background-color: #ebebeb;
+	transition: 0.2s;
+}
+
+#Search {
 	display: block;
 	width: 100%;
 	font-size: 25px;
@@ -165,55 +211,12 @@ input {
 	border-radius: 35px;
 	cursor: pointer;
 	margin-top: 2em;
-} */
-
-#Search {
-	background-color: #cc2854;
-	border: 2px solid #570118;
-	border-radius: 30px;
-	margin: 2em;
-	box-shadow: #140c00 4px 4px 0 0;
-	color: #422800;
-	cursor: pointer;
-	display: inline-block;
-	font-weight: 600;
-	font-size: 18px;
-	padding: 0 18px;
-	line-height: 50px;
-	text-align: center;
-	text-decoration: none;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
+	transition: 0.2s ease-out;
 }
 
 #Search:hover {
-	background-color: #fff;
-}
-
-#Search:focus {
-	box-shadow: #422800 2px 2px 0 0;
-	transform: translate(2px, 2px);
-}
-
-/* CSS */
-.button-74 {
-	background-color: #fbeee0;
-	border: 2px solid #422800;
-	border-radius: 30px;
-	box-shadow: #422800 4px 4px 0 0;
-	color: #422800;
-	cursor: pointer;
-	display: inline-block;
-	font-weight: 600;
-	font-size: 18px;
-	padding: 0 18px;
-	line-height: 50px;
-	text-align: center;
-	text-decoration: none;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
+	transform: scale(1.1);
+	transition: 0.6s ease-in-out;
 }
 
 /*=====  End of Section comment block  ======*/
@@ -223,7 +226,6 @@ input {
 =============================================*/
 
 .Color {
-	background-color: #088750;
 	border-radius: 15px;
 	cursor: pointer;
 	color: #ffffff;
@@ -244,10 +246,13 @@ input {
 
 .colorOne {
 	background-color: red;
+	transition: 0.8s ease-out;
 }
 
 .colorOne:hover {
 	background-color: #fd6c6c;
+	transform: scale(2.5);
+	transition: 0.3s ease-in;
 }
 .colorOne:active {
 	position: relative;
@@ -256,10 +261,13 @@ input {
 
 .colorTwo {
 	background-color: blue;
+	transition: 0.8s ease-out;
 }
 
 .colorTwo:hover {
 	background-color: #5653ff;
+	transform: scale(2.5);
+	transition: 0.3s ease-in;
 }
 .colorTwo:active {
 	position: relative;
@@ -268,10 +276,13 @@ input {
 
 .colorThree {
 	background-color: green;
+	transition: 0.8s ease-out;
 }
 
 .colorThree:hover {
 	background-color: #2cd665;
+	transform: scale(2.5);
+	transition: 0.3s ease-in;
 }
 .colorThree:active {
 	position: relative;
@@ -280,10 +291,13 @@ input {
 
 .colorFour {
 	background-color: yellow;
+	transition: 0.8s ease-out;
 }
 
 .colorFour:hover {
 	background-color: #ddfa3b;
+	transform: scale(2.5);
+	transition: 0.3s ease-in;
 }
 .colorFour:active {
 	position: relative;
@@ -292,10 +306,13 @@ input {
 
 .colorFive {
 	background-color: purple;
+	transition: 0.8s ease-out;
 }
 
 .colorFive:hover {
 	background-color: #82248f;
+	transform: scale(2.5);
+	transition: 0.3s ease-in;
 }
 .colorFive:active {
 	position: relative;
@@ -303,6 +320,6 @@ input {
 }
 /*=====  End of Section comment block  ======*/
 
-#lyricsMusixmatch{
+#lyricsMusixmatch {
 	white-space: pre-line;
 }
