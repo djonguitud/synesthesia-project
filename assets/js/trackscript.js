@@ -32,9 +32,10 @@ function onPageLoad(){
     if (storedToken !== null) { //If there is something in the localStorage
         array = storedToken;
         access_token = array[0]; //Move the stored token to a variable
-        console.log("Token ready");
+        console.log("Token ready 2");
+        console.log("Validate last search");
         last = JSON.parse(localStorage.getItem("Last")); //Get the stored search
-        console.log(last);
+        console.log(last[0]);
         if (last !== null){
             console.log("Search last artist/track");
             getTrack();
@@ -142,8 +143,11 @@ function getTrack() {
 =======
 function getTrack(){
     $("p").remove(".message");
+    $("#lyricsMusixmatch").html("");
     console.log(last);
-    if (last !== null){
+
+    console.log(last);
+    if (last === null){
         console.log("Get data from inputs");
         Artist = $("#ArtistInput").val();
         Track = $("#TrackInput").val();
@@ -189,7 +193,7 @@ function getTrack(){
             elementmessage.text("No tracks were found for your search, please try with different values");
             elementmessage.attr("style", "color:white; text-align:center;");
             elementmessage.addClass("message");
-            $("#Input").append(elementmessage);
+            $("#lyricsMusixmatch").append(elementmessage);
         }
     });
 
@@ -223,7 +227,7 @@ function getAudioFeatures(trackid){
             console.log(valence);
             console.log(energy);
             genColor(energy, valence);
-            getLirycs(Track);
+            getLirycs(Track,Artist);
         });
 >>>>>>> 1494b7937051ab34aae51545bc0848147efb0cd4
 }
@@ -251,6 +255,7 @@ function displayEmbed(trackid) {
     $("#embedded-iframe").attr("src", newembed);
 }
 
+<<<<<<< HEAD
 function onPageLoad() {
 	storedToken = JSON.parse(localStorage.getItem('Token')); //Get the stored token
 	var str = window.location.search;
@@ -277,6 +282,9 @@ function onPageLoad() {
 	}
 >>>>>>> 1494b7937051ab34aae51545bc0848147efb0cd4
 }
+=======
+
+>>>>>>> e5a2121c4573c9878a2f645a7e8b0d5ce7a3a24c
 
 $('#Search').on('click', getTrack);
 
