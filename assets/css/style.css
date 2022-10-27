@@ -245,12 +245,12 @@ input:focus {
 }
 
 .colorOne {
-	background-color: red;
+	background-color: yellow;
 	transition: 0.8s ease-out;
 }
 
 .colorOne:hover {
-	background-color: #fd6c6c;
+	background-color: #ddfa3b;
 	transform: scale(2.5);
 	transition: 0.3s ease-in;
 }
@@ -275,12 +275,12 @@ input:focus {
 }
 
 .colorThree {
-	background-color: green;
+	background-color: red;
 	transition: 0.8s ease-out;
 }
 
 .colorThree:hover {
-	background-color: #2cd665;
+	background-color: #fd6c6c;
 	transform: scale(2.5);
 	transition: 0.3s ease-in;
 }
@@ -290,12 +290,12 @@ input:focus {
 }
 
 .colorFour {
-	background-color: yellow;
+	background-color: rgb(255,0,255);
 	transition: 0.8s ease-out;
 }
 
 .colorFour:hover {
-	background-color: #ddfa3b;
+	background-color: rgb(255, 80, 255);
 	transform: scale(2.5);
 	transition: 0.3s ease-in;
 }
