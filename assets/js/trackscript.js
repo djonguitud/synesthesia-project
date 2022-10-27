@@ -22,9 +22,9 @@ function onPageLoad(){
         access_token = array[0]; //Move the stored token to a variable
         console.log("Token ready 2");
         console.log("Validate last search");
-        last = JSON.parse(localStorage.getItem("Last")); //Get the stored last search
-        console.log(last[0]);
+        last = JSON.parse(localStorage.getItem("Last")); //Get the stored last search 
         if (last !== null){ //If there is something in the stored last search
+            console.log(last[0]);
             console.log("Search last artist/track");
             getTrack(); //Get track information
         }
