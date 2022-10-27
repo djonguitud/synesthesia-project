@@ -4,7 +4,7 @@ var colorIndices = [10,5,15,8];
 var gradientSpeed = .016;
 
 function genColor(energy, valence, ) {
-
+  
   if (valence<0.5) {
     var colorYelQty = Math.round(valence*10);
     var colorBluQty = Math.round(10-valence*10);
