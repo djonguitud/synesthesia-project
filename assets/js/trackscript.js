@@ -43,7 +43,6 @@ function onPageLoad(){
         console.log("Start authorization process");
         getauthorization(); //Start authorization process to get authorization code
     }
-
 }
 
 //Function to get the authorization code from Spotify API
@@ -188,5 +187,6 @@ function displayEmbed(trackid) {
     $("#embedded-iframe").attr("src", newembed); //Place the url for the embed in the <iframe> element with id "embedded-iframe"
 }
 
-//Whwn clicking on the button with id "Search", execute function getTrack
+//When clicking on the button with id "Search", execute function getTrack
 $("#Search").on("click", getTrack);
+
