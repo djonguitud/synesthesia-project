@@ -5,46 +5,49 @@ var lyricsUrlMusix  = cors +"https://api.musixmatch.com/ws/1.1/track.lyrics.get?
 var trackIdMusix;
 var lyricsBody;
 
-async function getTrackAsync (trackName, TrackArtistName){
-    var requestUrl = trackUrlMusix +trackName+"&q_artist="+TrackArtistName;
-    var response = await fetch(requestUrl);
-    var data = await response.json();
-    console.log("---trackAsync---");
-    console.log(data);
-    return data;
-}
 
-async function getDataLirycsAsyc (trackIdMusixParm){
-    var requestUrl = lyricsUrlMusix + trackIdMusixParm;
-    var response = await fetch(requestUrl);
-    var data = response.json();
-    console.log("---dataLyricAsync---");
-    console.log(data);
-    return data;
-}
+function getLirycs(trackName, TrackArtistName){
+    //debugger
+    trackIdMusix= null;
+    lyricsBody  = null;
 
-async function getLirycsAsyc(trackName, TrackArtistName){
-    trackIdMusix = null;
-    var dataTrack = await getTrackAsync(trackName, TrackArtistName);
-    if (dataTrack !== null && dataTrack.message.header.status_code == 200 && dataTrack.message.body.track_list.length > 0){
-        debugger
-        trackIdMusix = dataTrack.message.body.track_list[0].track.track_id;        
-        if (trackIdMusix !== null ){
-            var dataLirycs = await getDataLirycsAsyc(trackIdMusix)
-            if (dataLirycs !== null && dataLirycs.message.header.status_code == 200){
-                lyricsBody = dataLirycs.message.body.lyrics.lyrics_body;
-                console.log(lyricsBody);                
+    var trackUrl = trackUrlMusix +trackName+"&q_artist="+TrackArtistName;
+    $("#lyricsMusixmatch").attr("style","color:white;");
+    fetch(trackUrl)
+    .then(function (response)  {
+    return response.json();
+    }).then (function(data){ 
+        console.log("---track---")
+        console.log(data);
+        
+        if (data !== null && data.message.header.status_code == 200 && data.message.body.track_list.length > 0){
+            trackIdMusix = data.message.body.track_list[0].track.track_id;
+            console.log(data.message.body.track_list[0].track.track_id);
+        }
+        else{            
+            $("#lyricsMusixmatch").text("No track found for : "  + trackName + "/"+TrackArtistName);
+        }
+        
+
+    }).then(function(){
+        var lyricsUrl =  lyricsUrlMusix + trackIdMusix;;
+        console.log(lyricsUrl);
+        fetch(lyricsUrl)
+        .then(function (response)  {
+        return response.json();
+        }).then (function(data){ 
+            console.log("---lyrics---")
+            console.log(data);
+            if (data !== null && data.message.header.status_code == 200 && data.message.body.lyrics.lyrics_body.trim().length > 0 ){
+                lyricsBody = data.message.body.lyrics.lyrics_body;
+                console.log(lyricsBody);
                 $("#lyricsMusixmatch").text(lyricsBody);
             }
             else{
-                $("#lyricsMusixmatch").text("No Track - Lyrics found for : "  + trackName + "/"+TrackArtistName);
+                $("#lyricsMusixmatch").text("No lyrics found for : "  + trackName + "/"+TrackArtistName);
             }
-        }
-        else{
-            $("#lyricsMusixmatch").text("No Lyrics found for : "  + trackName + "/"+TrackArtistName);
-        }
-    }
-    else{
-        $("#lyricsMusixmatch").text("No Track found for : "  + trackName + "/"+TrackArtistName);
-    }
+        });
+
+    } );
+    return;
 }
