@@ -40,9 +40,10 @@ input:focus,
 =            Containers and boxes section           =
 =============================================*/
 
-main {
+#GradContainer {
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 2000px;
+	min-width: 100vh;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -62,7 +63,7 @@ main {
 		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
 		'Colors Colors Colors Colors Colors Colors Colors Colors Colors';
 
-	width: 80%;
+	width: 60%;
 	height: auto;
 }
 
@@ -74,13 +75,13 @@ main {
 	padding: 2em;
 	margin-top: 0.5em;
 	border-radius: 15px;
-	background-color: #0a090854;
+	background-color: #0a090856;
 	border: solid black 2px;
 	transition: 1s;
 }
 
 #Colors:hover {
-	background-color: #0a0908b0;
+	background-color: #0a0908c9;
 	transition: 1s;
 }
 
@@ -128,7 +129,7 @@ main {
 	grid-area: TrackDisplay;
 	margin-bottom: 1em;
 	border-radius: 15px;
-	border: solid black 2px;
+
 	color: white;
 }
 
@@ -320,6 +321,6 @@ input:focus {
 }
 /*=====  End of Section comment block  ======*/
 
-#lyricsMusixmatch{
+#lyricsMusixmatch {
 	white-space: pre-line;
 }
