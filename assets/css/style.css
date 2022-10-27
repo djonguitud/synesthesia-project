@@ -63,11 +63,7 @@ input:focus,
 		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
 		'Colors Colors Colors Colors Colors Colors Colors Colors Colors';
 
-<<<<<<< HEAD
-	width: 80%;
-=======
 	width: 60%;
->>>>>>> style-branch
 	height: auto;
 }
 
@@ -79,21 +75,13 @@ input:focus,
 	padding: 2em;
 	margin-top: 0.5em;
 	border-radius: 15px;
-<<<<<<< HEAD
-	background-color: #0a090854;
-=======
 	background-color: #0a090856;
->>>>>>> style-branch
 	border: solid black 2px;
 	transition: 1s;
 }
 
 #Colors:hover {
-<<<<<<< HEAD
-	background-color: #0a0908b0;
-=======
 	background-color: #0a0908c9;
->>>>>>> style-branch
 	transition: 1s;
 }
 
@@ -141,11 +129,6 @@ input:focus,
 	grid-area: TrackDisplay;
 	margin-bottom: 1em;
 	border-radius: 15px;
-<<<<<<< HEAD
-	border: solid black 2px;
-=======
-
->>>>>>> style-branch
 	color: white;
 }
 
