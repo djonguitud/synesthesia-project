@@ -169,7 +169,6 @@ function getAudioFeatures(trackid){
             console.log(valence);
             console.log(energy);
             genColor(energy, valence);
-            getLirycs(Track);
         });
 }
 
