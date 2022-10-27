@@ -6,15 +6,8 @@ var step = 0;
 var colorIndices = [0,1,2,3];
 var gradientSpeed = .016;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function genColor(energy, valence, ) {
-=======
+
 function genColor(energy, valence) {
->>>>>>> e9fefe8920ecf82e4652395340007dba60b240a3
-=======
-function genColor(energy, valence) {
->>>>>>> 97043d1c9d5c48705c2e825f86c3fc45a02f9807
 
   var newColors = [];
   
@@ -71,11 +64,15 @@ function modColor(addColor) {
   
   if(addColor=="yellow") {
     colors.push([255,255-Math.floor(Math.random() * 200), 0]);
+    colors.push([255,255-Math.floor(Math.random() * 200), 0]);
   } else if (addColor=="blue") {
+    colors.push([0+Math.floor(Math.random() * 200),0,255]);
     colors.push([0+Math.floor(Math.random() * 200),0,255]);
   } else if (addColor=="red") {
     colors.push([255,0,0+Math.floor(Math.random() * 200)]);
+    colors.push([255,0,0+Math.floor(Math.random() * 200)]);
   } else if (addColor=="magenta") {
+    colors.push([255,0,255-Math.floor(Math.random() * 200)]);
     colors.push([255,0,255-Math.floor(Math.random() * 200)]);
   }
 
@@ -114,7 +111,7 @@ function updateGradient() {
           colorIndices[2] = colorIndices[3];
           colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
           colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;  
-          //console.log(colorIndices);
+          console.log(colorIndices);
       }
   }
 
