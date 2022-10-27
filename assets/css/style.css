@@ -75,13 +75,13 @@ input:focus,
 	padding: 2em;
 	margin-top: 0.5em;
 	border-radius: 15px;
-	background-color: #0a090854;
+	background-color: #0a090856;
 	border: solid black 2px;
 	transition: 1s;
 }
 
 #Colors:hover {
-	background-color: #0a0908b0;
+	background-color: #0a0908c9;
 	transition: 1s;
 }
 
