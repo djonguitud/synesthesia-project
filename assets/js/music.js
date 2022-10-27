@@ -5,43 +5,6 @@ var lyricsUrlMusix  = cors +"https://api.musixmatch.com/ws/1.1/track.lyrics.get?
 var trackIdMusix;
 var lyricsBody;
 
-/*
-function getLirycs(trackName, TrackArtistName)
-{
-    var trackUrl = trackUrlMusix +trackName+"&"+TrackArtistName;
-
-    fetch(trackUrl)
-    .then(function (response)  {
-    return response.json();
-    }).then (function(data){ 
-        console.log("---track---")
-        console.log(data);
-        console.log(data.message.body.track_list[0].track.track_id);
-        trackIdMusix = data.message.body.track_list[0].track.track_id;
-
-    }).then(function(){
-        var lyricsUrl =  lyricsUrlMusix + trackIdMusix;
-
-        console.log(lyricsUrl);
-        fetch(lyricsUrl)
-        .then(function (response)  {
-        return response.json();
-        }).then (function(data){ 
-            console.log("---lyrics---")
-            console.log(data);
-            lyricsBody = data.message.body.lyrics.lyrics_body;
-            console.log(lyricsBody);
-
-            console.log(lyricsMusixmatch);
-            $("#lyricsMusixmatch").text(lyricsBody);
-
-        });
-
-    } );
-    return lyricsBody;
-}
-*/
-
 async function getTrackAsync (trackName, TrackArtistName){
     var requestUrl = trackUrlMusix +trackName+"&q_artist="+TrackArtistName;
     var response = await fetch(requestUrl);
