@@ -76,7 +76,7 @@ function updateGradient() {
   var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
   var color2 = "#"+((r2 << 16) | (g2 << 8) | b2).toString(16);
 
-  $('#gradient').css({
+  $('#GradContainer').css({
       background: "-webkit-radial-gradient(center, circle cover, "+color1+","+color2+")"});
   
       step += gradientSpeed;
@@ -90,5 +90,4 @@ function updateGradient() {
       }
   }
 
-genColor(0.392, 0.163);
 setInterval(updateGradient, 15);

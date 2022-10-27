@@ -13,7 +13,6 @@ var last = [];
 
 
 function onPageLoad(){
-    arraylast="";
     storedToken = JSON.parse(localStorage.getItem("Token")); //Get the stored token
     var str = window.location.search;
     console.log("STRING");
@@ -87,10 +86,12 @@ function handleAuthResponse(){
 function getTrack(){
     $("p").remove(".message");
     console.log(last);
-    if (last === null){
+    if (last !== null){
+        console.log("Get data from inputs");
         Artist = $("#ArtistInput").val();
         Track = $("#TrackInput").val();
     }else{
+        console.log("Data in localStorage");
         Artist = last[0].Art;
         Track = last[0].Tck;
     }
@@ -164,6 +165,8 @@ function getAudioFeatures(trackid){
             var energy = data.energy;
             console.log(valence);
             console.log(energy);
+            genColor(energy, valence);
+            getLirycs(Track);
         });
 }
 
