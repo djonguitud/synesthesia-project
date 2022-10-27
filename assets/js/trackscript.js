@@ -187,6 +187,7 @@ function displayEmbed(trackid) {
     $("#embedded-iframe").attr("src", newembed); //Place the url for the embed in the <iframe> element with id "embedded-iframe"
 }
 
-//When clicking on the button with id "Search", execute function getTrack
-$("#Search").on("click", getTrack);
+
+$('#Search').on('click', getTrack);
+
 
