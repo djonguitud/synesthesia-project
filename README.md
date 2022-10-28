@@ -49,7 +49,9 @@
 
 ![Visualización de la aplicación](./assets/img/Application.png)
 
+## Referencias
 
+- [Proceso de autorización para API de Spotify](https://www.youtube.com/watch?v=1vR3m0HupGI)
 
 
  
