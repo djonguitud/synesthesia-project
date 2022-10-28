@@ -10,12 +10,15 @@
 }
 
 :root {
+	font-size: 62.5%;
+	height: 100%;
 }
 
 body {
 	background-color: rgb(53, 53, 53);
-	height: 100vh;
 	font-family: 'JetBrains Mono', monospace;
+	font-size: 1.6rem;
+	min-height: 100%;
 }
 
 button {
@@ -43,17 +46,17 @@ input:focus,
 #GradContainer {
 	margin: 0 auto;
 	max-width: 2000px;
-	min-width: 100vh;
-	height: 100vh;
+	min-width: 100vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-height: 100vh;
 }
 
 #FullContainer {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 	gap: 0;
 	grid-template-areas:
 		'PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer PlayerContainer'
@@ -106,6 +109,11 @@ input:focus,
 		'LyricsDisplay LyricsDisplay LyricsDisplay';
 }
 
+#embedded-iframe {
+	width: 100%;
+	height: 100%;
+}
+
 #Input {
 	padding: 2em;
 	width: 40%;
@@ -130,6 +138,7 @@ input:focus,
 	margin-bottom: 1em;
 	border-radius: 15px;
 	color: white;
+	min-width: 220px;
 }
 
 #LyricsDisplay {
@@ -146,7 +155,8 @@ input:focus,
 .lyrics {
 	height: 100%;
 	background-color: #0a09088b;
-	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	padding: 1em;
 	border-radius: 15px;
 	border: solid black 2px;
@@ -164,6 +174,7 @@ input:focus,
 
 h2 {
 	text-align: center;
+	font-size: clamp(2rem, 0.95rem + 0.25vw, 1.25rem);
 	color: white;
 	font-weight: 700;
 	margin-bottom: 1em;
@@ -205,7 +216,7 @@ input:focus {
 #Search {
 	display: block;
 	width: 100%;
-	font-size: 25px;
+	font-size: clamp(2rem, 0.95rem + 0.25vw, 1.25rem);
 	background-color: #cc2854;
 	color: #000000;
 	border-radius: 35px;
@@ -320,6 +331,114 @@ input:focus {
 }
 /*=====  End of Section comment block  ======*/
 
+/*=============================================
+=            Misc block            =
+=============================================*/
+
 #lyricsMusixmatch {
 	white-space: pre-line;
 }
+
+.lyrics::-webkit-scrollbar {
+	width: 1rem;
+}
+
+.lyrics::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 15px;
+}
+
+.lyrics::-webkit-scrollbar-thumb {
+	background: rgb(0, 0, 0);
+	border-radius: 15px;
+}
+
+.lyrics::-webkit-scrollbar-thumb:hover {
+	background: #b30000;
+}
+
+/*=====  End of Section comment block  ======*/
+
+/*=============================================
+=            Media Queries block            =
+=============================================*/
+
+@media screen and (max-width: 850px) {
+	* {
+		margin: 0;
+	}
+
+	#GradContainer {
+		align-items: flex-start;
+	}
+
+	#FullContainer {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 0px 0px;
+		grid-template-areas:
+			'Colors'
+			'Colors'
+			'PlayerContainer'
+			'PlayerContainer'
+			'PlayerContainer'
+			'PlayerContainer'
+			'PlayerContainer';
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		margin: 0.5em;
+	}
+
+	#Colors {
+		grid-area: Colors;
+		width: 100%;
+	}
+
+	#PlayerContainer {
+		grid-area: PlayerContainer;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 0px 0px;
+		grid-template-areas:
+			'Input'
+			'Input'
+			'TrackContainer'
+			'TrackContainer'
+			'TrackContainer'
+			'TrackContainer';
+	}
+
+	#Input {
+		grid-area: Input;
+		width: 100%;
+		margin-left: 0;
+		margin-top: 1em;
+	}
+	#TrackContainer {
+		grid-area: TrackContainer;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 0px 0px;
+		grid-template-areas:
+			'TrackDisplay'
+			'LyricsDisplay';
+		width: 100%;
+	}
+
+	#TrackDisplay {
+		grid-area: TrackDisplay;
+		width: 100%;
+		margin-top: 0.5em;
+		margin-bottom: 0;
+	}
+	#LyricsDisplay {
+		grid-area: LyricsDisplay;
+		width: 100%;
+		margin-top: 0.5em;
+	}
+}
+/*=====  End of Section comment block  ======*/
