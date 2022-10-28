@@ -32,7 +32,8 @@ function getLirycs(trackName, TrackArtistName){
     /**
      * Llamado a la busqueda de la cancion y artista
      */
-    fetch(trackUrl)
+    fetch(trackUrl, {
+        headers: { "Access-Control-Allow-Origin": "*"} })
     .then(function (response)  {
     return response.json();
     }).then (function(data){ 
