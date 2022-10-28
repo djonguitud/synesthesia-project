@@ -138,6 +138,8 @@ function getTrack(){
         console.log(data);
         if (data.tracks.items.length > 0){ //If the response data contains a track
             console.log(data.tracks.items[0].id); 
+            Artist = data.tracks.items[0].artists[0].name; //Overwrite the Artist
+            Track = data.tracks.items[0].name; //Overwrite the Track
             getAudioFeatures(data.tracks.items[0].id); //Get the audio features of the track using the track id
             displayEmbed(data.tracks.items[0].id); //Display the track as embedded using the track id
         } else {
