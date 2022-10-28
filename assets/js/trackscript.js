@@ -16,21 +16,21 @@ var last = []; //Clean variable
 function onPageLoad(){
     storedToken = JSON.parse(localStorage.getItem("Token")); //Get the stored token
     var str = window.location.search; //Find the text after "search" text in the page URL
-    console.log("STRING");
-    console.log(str);
+    //console.log("STRING");
+    //console.log(str);
     if (storedToken !== null) { //If there is something in the localStorage
         array = storedToken; //Move the stored Token to an array
         access_token = array[0]; //Move the stored token to a variable
-        console.log("Token ready 2");
-        console.log("Validate last search");
+        //console.log("Token ready 2");
+        //console.log("Validate last search");
         last = JSON.parse(localStorage.getItem("Last")); //Get the stored last search 
         if (last !== null){ //If there is something in the stored last search
-            console.log(last[0]);
-            console.log("Search last artist/track");
+            //console.log(last[0]);
+            //console.log("Search last artist/track");
             getTrack(); //Get track information
         }
     } else if (str.length > 0){ //If there wasn't a token in the localStorage and there was a text after "search" text in the page URL
-        console.log("Extract the code needed to get a new token");
+        //console.log("Extract the code needed to get a new token");
         var URLparameters = new URLSearchParams(str); //Get the URL search parameters from the text
         code = URLparameters.get("code"); //Get the code from the URL search parameters
         //Build the body with the parameters for the authorization process call to get Token
@@ -41,7 +41,7 @@ function onPageLoad(){
         body += "&client_secret" + client_secret; //Include the Spotify client secret
         callAuthorizationAPI(body); //Call the authorization process to get Token
     }else if (str.length === 0) { //If there wasn't a token in the localStorage and there wasn't any text after "search" text in the page URL
-        console.log("Start authorization process");
+        //console.log("Start authorization process");
         getauthorization(); //Start authorization process to get authorization code
     }
 }
@@ -55,7 +55,7 @@ function getauthorization() {
     url += "&redirect_uri=" + encodeURI(redirect_uri); //Place the redirect uri encoded
     url += "&show_dialog=false"; //Don't show the dialog
     url += "&scope=user-follow-read"; //Place a basic scope
-    console.log(url);
+    //console.log(url);
     window.location.href = url; //Go to the authorization url
 }
 
@@ -74,7 +74,7 @@ function callAuthorizationAPI(body){
 function handleAuthResponse(){
     if ( this.status == 200 ){ //If response status is 200
         var data = JSON.parse(this.responseText); //parse the response into data
-        console.log(data);
+        //console.log(data);
         if ( data.access_token != undefined ){ //If the access token is different to undefined
             access_token = data.access_token; //Get the access token into a variable
             array[0] = access_token; //Add the access token to the array
@@ -83,8 +83,8 @@ function handleAuthResponse(){
             window.location.href = "index.html" //Go to index.html
         }
         else { //The access token is undefined
-            console.log(this.responseText);
-            console.log("No token was generated");
+            //console.log(this.responseText);
+            //console.log("No token was generated");
             window.location.href = "index.html" //Go to index.html
         }
     }
@@ -94,13 +94,13 @@ function handleAuthResponse(){
 function getTrack(){
     $("p").remove(".message"); //Remove the <p> element with class "message"
     $("#lyricsMusixmatch").html(""); //Clean the element with id "lyricsMusixmatch"
-    console.log(last);
+    //console.log(last);
     if (last === null){ //If there is no data in the last search
-        console.log("Get data from inputs"); 
+        //console.log("Get data from inputs"); 
         Artist = $("#ArtistInput").val(); //Get Artist from the input
         Track = $("#TrackInput").val(); //Get the Track from the input
     }else{ //If there is data in the last search
-        console.log("Data in localStorage");
+        //console.log("Data in localStorage");
         Artist = last[0].Art; //Get the Artist from the array got from localStorage
         Track = last[0].Tck; //Get the Track from the array got from localStorage
     }
@@ -117,12 +117,12 @@ function getTrack(){
     }
     //Clean the item Last from localStorage
     localStorage.removeItem("Last");
-    console.log(requesturl);
+    //console.log(requesturl);
     fetch(requesturl, { //Fetch the request URL
         method: 'GET', headers: { 'Authorization': "Bearer " + access_token} //Place the access token in the GET method header
             })
     .then( function (response) {
-        console.log(response.status);
+        //console.log(response.status);
         if (response.status === 401){ //If the token has expired
             localStorage.removeItem("Token"); //Remove the item Token from the localStorage
             var lastSearch = { //Create an object to store the last search made by the user
@@ -136,9 +136,9 @@ function getTrack(){
         }
         return response.json(); 
     }).then( function (data) {
-        console.log(data);
+        //console.log(data);
         if (data.tracks.items.length > 0){ //If the response data contains a track
-            console.log(data.tracks.items[0].id); 
+            //console.log(data.tracks.items[0].id); 
             Artist = data.tracks.items[0].artists[0].name; //Overwrite the Artist
             Track = data.tracks.items[0].name; //Overwrite the Track
             getAudioFeatures(data.tracks.items[0].id); //Get the audio features of the track using the track id
@@ -160,7 +160,7 @@ function getAudioFeatures(trackid){
         method: 'GET', headers: { 'Authorization': "Bearer " + access_token} //Place the access token in the GET method header
         })
         .then(function (response) {
-            console.log(response.status);
+            //console.log(response.status);
             if (response.status === 401){ //If the token has expired
                 localStorage.removeItem("Token"); //Remove the item Token from the localStorage
                 var lastSearch = { //Create an object to store the last search made by the user
@@ -174,11 +174,11 @@ function getAudioFeatures(trackid){
             }
             return response.json();
         }).then(function (data) { 
-            console.log(data);
+            //console.log(data);
             var valence = data.valence; //Get the valence parameter
             var energy = data.energy; //Get the energy parameter
-            console.log(valence);
-            console.log(energy);
+            //console.log(valence);
+            //console.log(energy);
             genColor(energy, valence); //Call function of color generation using energy and valence
             getLirycs(Track,Artist); //Get Lyrics using the Track and Artist
         });
