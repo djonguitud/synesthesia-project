@@ -104,7 +104,9 @@ function getTrack(){
         Artist = last[0].Art; //Get the Artist from the array got from localStorage
         Track = last[0].Tck; //Get the Track from the array got from localStorage
     }
+
     //console.log("Search");
+    //Comment
     if (Artist !== "" && Track !== ""){ //If the artist and track were provided
         //Generate the request URL using both parameters
         var requesturl = "https://api.spotify.com/v1/search?q=" + Artist + "%20artist:" + Artist + "%20track:" + Track + "&type=track&limit=1&include_external=audio";
