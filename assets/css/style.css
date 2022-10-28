@@ -14,12 +14,21 @@
 	height: 100%;
 }
 
+
+
+
 body {
 	background-color: rgb(53, 53, 53);
 	font-family: 'JetBrains Mono', monospace;
 	font-size: 1.6rem;
 	min-height: 100%;
+
 }
+
+body::-webkit-scrollbar{
+	display:none;
+}
+
 
 button {
 	text-decoration: none;
