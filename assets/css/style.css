@@ -137,6 +137,8 @@ input:focus,
 	grid-area: TrackDisplay;
 	border-radius: 15px;
 	color: white;
+	min-width: 220px;
+	max-height: 300px;
 }
 
 #LyricsDisplay {
@@ -429,7 +431,7 @@ input:focus {
 	#LyricsDisplay {
 		grid-area: LyricsDisplay;
 		width: 100%;
-		margin-top: 0.5em;
+		margin-top:0px;
 	}
 }
 /*=====  End of Section comment block  ======*/
