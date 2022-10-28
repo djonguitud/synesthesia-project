@@ -220,12 +220,10 @@ input:focus {
 	border-radius: 35px;
 	cursor: pointer;
 	margin-top: 2em;
-	transition: 0.2s ease-out;
 }
 
 #Search:hover {
-	transform: scale(1.1);
-	transition: 0.6s ease-in-out;
+	background-color: #90213f;
 }
 
 /*=====  End of Section comment block  ======*/
