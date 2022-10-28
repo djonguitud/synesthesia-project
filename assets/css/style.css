@@ -413,8 +413,8 @@ input:focus {
 	#TrackContainer {
 		grid-area: TrackContainer;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
-		grid-template-rows: repeat(auto-fit, minmax(250px, 3fr));
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
 		gap: 0px 0px;
 		grid-template-areas:
 			'TrackDisplay'
@@ -432,7 +432,6 @@ input:focus {
 	}
 	#LyricsDisplay {
 		grid-area: LyricsDisplay;
-		max-width: 300px;
 		margin-top: 0px;
 	}
 }
