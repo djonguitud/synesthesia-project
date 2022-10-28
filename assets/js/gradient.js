@@ -46,18 +46,18 @@ function genColor(energy, valence) {
     newColors.push([255,0,255-(l*25)]);
   }
   
-  console.log("actual  --->   ");
-  console.log(colors)
-  console.log("y: "+colorYelQty+"  b: "+colorBluQty+"  r: "+colorRedQty+"  m: "+colorMagQty);
-  console.log("nueva  --->   ");
+  //console.log("actual  --->   ");
+  //console.log(colors)
+  //console.log("y: "+colorYelQty+"  b: "+colorBluQty+"  r: "+colorRedQty+"  m: "+colorMagQty);
+  //console.log("nueva  --->   ");
   colors = newColors; //sobreescribe el arr actual de colores
   colorIndices[0] = 0; //sobreescribe los índices por si el arr anterior era de longitud mayor a 20, así evita valores undefined
   colorIndices[1] = 1;
   colorIndices[2] = 2;
   colorIndices[3] = 3;
-  console.log(newColors);
-  console.log("sobreescrita  --->   ");
-  console.log(colors);
+  //console.log(newColors);
+  //console.log("sobreescrita  --->   ");
+  //console.log(colors);
 
   return;
 }
@@ -79,8 +79,8 @@ function modColor(addColor) {
     colors.push([255,0,255-Math.floor(Math.random() * 200)]);
   }
 
-  console.log("actual  --->   ");
-  console.log(colors)
+  //console.log("actual  --->   ");
+  //console.log(colors)
   return;
 }
 
@@ -121,7 +121,7 @@ function updateGradient() {
           colorIndices[2] = colorIndices[3];
           colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length; //los dos nuevos colores se seleccionan al azar cuidando de que no se seleccione la misma posición de color
           colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;  
-          console.log(colorIndices);
+          //console.log(colorIndices);
       }
   }
 
