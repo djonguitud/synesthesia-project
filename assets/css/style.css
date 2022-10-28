@@ -143,6 +143,8 @@ input:focus,
 
 #LyricsDisplay {
 	grid-area: LyricsDisplay;
+	max-height: 300px;
+	margin-top: 0.5em;
 }
 
 #btns-container {
@@ -411,8 +413,8 @@ input:focus {
 	#TrackContainer {
 		grid-area: TrackContainer;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+		grid-template-rows: repeat(auto-fit, minmax(250px, 3fr));
 		gap: 0px 0px;
 		grid-template-areas:
 			'TrackDisplay'
@@ -430,8 +432,8 @@ input:focus {
 	}
 	#LyricsDisplay {
 		grid-area: LyricsDisplay;
-		width: 100%;
-		margin-top:0px;
+		max-width: 300px;
+		margin-top: 0px;
 	}
 }
 /*=====  End of Section comment block  ======*/
