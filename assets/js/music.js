@@ -9,8 +9,7 @@
 /**
  * Definicion de variables globales, Urls de api, y api keys.
  */
-// var cors            = "https://cors-anywhere.herokuapp.com/";
-var cors = "";
+var cors            = "https://cors-anywhere.herokuapp.com/";
 var apikey          = "9ffbe6147c3d611e3a0048e57074efe8";
 var trackUrlMusix   = cors + "https://api.musixmatch.com/ws/1.1/track.search?apikey="+apikey+"&f_has_lyrics=1&q_track="
 var lyricsUrlMusix  = cors +"https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey="+apikey+"&track_id=";
