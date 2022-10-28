@@ -1,32 +1,16 @@
 # Synesthesia
 
-## Historia de usuario:
+## Descripción de la aplicación
 
-* Como usuario de Spotify quiero buscar una canción de un artista específico para:
-    * Desplegar la canción y escucharla de forma preliminar
-    * Desplegar parte de la letra de la canción
-    * Manipular un fondo dinámico de colores combinados basado en las características de la canción
-
-## Criterios de aceptación:
-
-* Cuando abro la aplicación, se muestran dos cuadros de entrada para Canción y Artista para poder buscar una canción en Spotify.
-* Cuando presiono el botón de Buscar, se hace una petición a la API de Spotify que trae la primera canción que coincide con la búsqueda y pone una previsualización en la pantalla.
-* Cuando presiono el botón de Buscar, se hace una petición a la API de Spotify que trae las características de "energy" y "valence" de la canción. El valor de "energy" corresponde a la medida perceptiva de intensidad y actividad. Mientras que el valor de "valence" describe la positividad musical de la canción.
-* Cuando presiono el botón de Buscar, se hace una petición a la API de Musixmatch que trae la letra de la canción buscada y la pone en la pantalla.
-* Cuando presiono el botón de Buscar, se utilizan los datos de energy y valence de la canción para generar un fondo dinámico de colores:
+* Permite al usuario buscar una canción utilizando el nombre de la canción y/o el nombre del artista utilizando la API de Spotify.
+* Muestra la previsualización de la canción utilizando la API de Spotify y permite una reproducción parcial de la canción.
+* Extrae los parámetros "energy" y "valence" de la canción usando la API de Spotify. El valor de "energy" corresponde a la medida perceptiva de intensidad y actividad. Mientras que el valor de "valence" describe la positividad musical de la canción.
+* Despliega la letra parcial de la canción utilizando información de la API de Musixmatch.
+* Genera un fondo dinámico de colores utilizando amarillo, azul, rojo y magenta, cuya proporción de colores es definida por los parámetros de "energy" y "valence":
     * Se utiliza un arreglo de cuatro colores para formar el fondo dinámico: amarillo, azul, rojo y magenta.
     * El valor de energy define la proporción de rojo y magenta.
     * El valor de valence define la proporción de amarillo azul.
-* Cuando se muestra el fondo dinámico de colores y el usuario presiona algún botón de color, entonces el fondo dinámico de colores agrega dos tonos del color seleccionado por el usuario al arreglo de colores para aumentar la presencia del color deseado.
-
-## Descripción de la aplicación
-
-* Permite al usuario buscar una canción utilizando el nombre de la canción y/o el nombre del artista.
-* Muestra la previsualización de la canción utilizando la API de Spotify y permite una reproducción parcial.
-* Extrae los parámetros "energy" y "valence" de la canción usando la API de Spotify.
-* Despliega la letra parcial de la canción utilizando información de la API de Musixmatch.
-* Genera un fondo dinámico de colores utilizando amarillo, azul, rojo y magenta, cuya proporción de colores es definida por los parámetros de "energy" y "valence".
-* Permite al usuario agregar tonos de color al presionar los botones de colores para aumentar la presencia de cierto color deseado.
+* Permite al usuario agregar dos tonos de color al presionar cierto botón de color para aumentar la presencia del color deseado.
 
 ## Tecnologías usadas
 
@@ -51,15 +35,19 @@
 - [Diego Jonguitud Galindo](https://github.com/djonguitud)
 - [Jorge Alejandro Ramírez Anzaldo](https://github.com/JorgeRamirezAnzaldo)
 
-## Captura de pantalla de la aplicación
+## Enlace a la aplicación
 
-
+* [Link a aplicación](https://djonguitud.github.io/synesthesia-project/)
 
 ## Animación de la aplicación
 
+![Funcionamiento de la aplicación](./assets/media/Synesthesia.gif)
+
+## Captura de pantalla de la aplicación
+
+![Visualización de la aplicación](./assets/img/Application.png)
 
 
-## Enlace a la aplicación
 
 
  
