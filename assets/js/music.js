@@ -25,6 +25,11 @@ var lyricsBody;
  *          
  */
 function getLirycs(trackName, TrackArtistName){
+    jQuery.ajaxPrefilter(function(options) {
+        if (options.crossDomain && jQuery.support.cors) {
+            options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+        }
+    });
     trackIdMusix= null;
     lyricsBody  = null;
     var trackUrl = trackUrlMusix +trackName+"&q_artist="+TrackArtistName;
