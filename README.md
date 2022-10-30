@@ -37,6 +37,13 @@
 - [Diego Jonguitud Galindo](https://github.com/djonguitud)
 - [Jorge Alejandro Ramírez Anzaldo](https://github.com/JorgeRamirezAnzaldo)
 
+## Para probar la aplicación:
+
+* Entra a este [link](https://cors-anywhere.herokuapp.com/) y presiona el botón "Request temporary access to demo server". Si no aparece, ya has solicitado el permiso temporal antes.
+* Utiliza las siguientes credenciales de Spotify cuando se te soliciten:
+    * Usuario: jaanzaldo96@gmail.com
+    * Contraseña: Bootcamp2022/
+
 ## Enlace a la aplicación
 
 * [Link a aplicación](https://djonguitud.github.io/synesthesia-project/)
