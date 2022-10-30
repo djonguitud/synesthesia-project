@@ -1,7 +1,7 @@
 var Artist = "Eagles";
 var Track = "Hotel California";
-var client_id = "71dddef0e17b4ade850d8fd3cf9599d3"; //Spotify client id
-var client_secret = "b545088d0642400cbb25a4ec53893875"; //Spotify client secret
+var client_id = "4f592f50b99345189fd5ee815562ea41"; //Spotify client id
+var client_secret = "da641ff44e6143c7a099d3325f93c35d"; //Spotify client secret
 const urlauthorize = "https://accounts.spotify.com/authorize"; //Spotify URL to request authorization
 // var redirect_uri = "http://127.0.0.1:5500/index.html"; //Redirect uri for Spotify authorization process
 var redirect_uri = "https://djonguitud.github.io/synesthesia-project/index.html"; //Redirect uri for Spotify authorization process
