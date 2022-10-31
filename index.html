@@ -13,11 +13,13 @@
 		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;800&display=swap" rel="stylesheet" />
 	</head>
 	<body onload="onPageLoad()">
+		<!--Main element where the dynamic color cover will be displayed-->
 		<main id="GradContainer">
 			<container id="FullContainer">
 				<container id="PlayerContainer">
 					<div id="TrackContainer">
 						<div id="TrackDisplay">
+							<!--iframe element to display the embedded track from Spotify-->
 							<iframe
 								id="embedded-iframe"
 								style="border-radius: 12px"
@@ -26,13 +28,15 @@
 								allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 								loading="lazy"></iframe>
 						</div>
-						<div id="LyricsDisplay">
+						<!--Elements to display the lyrics of the track-->
+						<div id="LyricsDisplay"> 
 							<div class="lyrics">
 								<p id="lyricsMusixmatch"></p>
 								<br />
 							</div>
 						</div>
 					</div>
+					<!--Elements for the user to introduce Track, Artist and Search-->
 					<div id="Input">
 						<h2>Busca tu canción:</h2>
 						<label for="">Canción</label>
@@ -42,6 +46,7 @@
 						<button id="Search">Buscar</button>
 					</div>
 				</container>
+				<!--Color buttons to modify the dynamic color cover-->
 				<div id="Colors">
 					<button id="FirstColor" class="Color colorOne" onclick="modColor('yellow')"></button>
 					<button id="SecondColor" class="Color colorTwo" onclick="modColor('blue')"></button>
@@ -50,10 +55,14 @@
 				</div>
 			</container>
 		</main>
+		<!--Include script for jquery-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!--Include scripts related to the track lyrics using Musixmatch API-->
 		<script type="text/javascript" src="https://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
 		<script type="text/javascript" src="./assets/js/music.js"></script>
+		<!--Include script for the gradient generation-->
 		<script src="./assets/js/gradient.js"></script>
+		<!--Include script for the track search using Spotify API-->
 		<script src="./assets/js/trackscript.js"></script>
 	</body>
 </html>
