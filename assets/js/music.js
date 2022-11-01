@@ -36,7 +36,10 @@ function getLirycs(trackName, TrackArtistName){
     fetch(trackUrl, {
         headers: { "Access-Control-Allow-Origin": "*"} })
     .then(function (response)  {
-    return response.json();
+        if (response.status === 429){
+            $("#lyricsMusixmatch").text("Too many requests for server, please try again later");
+        }
+        return response.json();
     }).then (function(data){ 
         
         if (data !== null && data.message.header.status_code == 200 && data.message.body.track_list.length > 0){
@@ -56,7 +59,10 @@ function getLirycs(trackName, TrackArtistName){
          */
         fetch(lyricsUrl)
         .then(function (response)  {
-        return response.json();
+            if (response.status === 429){
+                $("#lyricsMusixmatch").text("Too many requests for server, please try again later");
+            }
+            return response.json();
         }).then (function(data){ 
             if (data !== null && data.message.header.status_code == 200 && data.message.body.lyrics.lyrics_body.trim().length > 0 ){
                 lyricsBody = data.message.body.lyrics.lyrics_body;
