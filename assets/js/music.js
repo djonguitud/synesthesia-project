@@ -41,8 +41,9 @@ function getLirycs(trackName, TrackArtistName){
         
         if (data !== null && data.message.header.status_code == 200 && data.message.body.track_list.length > 0){
             trackIdMusix = data.message.body.track_list[0].track.track_id;
-        }
-        else{            
+        } else if (data.message.header.status_code == 429){
+            $("#lyricsMusixmatch").text("Too many requests for server, please try again later");
+        } else{            
             $("#lyricsMusixmatch").text("No track found for : "  + trackName + "/"+TrackArtistName);
         }
         
@@ -63,8 +64,9 @@ function getLirycs(trackName, TrackArtistName){
                  * Escritura de la letra de la cancion
                  */
                 $("#lyricsMusixmatch").text(lyricsBody);
-            }
-            else{
+            } else if (data.message.header.status_code == 429){
+                $("#lyricsMusixmatch").text("Too many requests for server, please try again later");
+            } else {
                 /**
                  * Escritura del mensaje de que no encontro resultados
                  */
